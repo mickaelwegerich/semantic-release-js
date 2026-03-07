@@ -13,8 +13,8 @@ jobs:
     name: Prepare Release
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.deploy-in-uat.outputs.version }}
-      new-release-published: ${{ steps.deploy-in-uat.outputs.new-release-published }}
+      version: ${{ steps.generate-release.outputs.version }}
+      new-release-published: ${{ steps.generate-release.outputs.new-release-published }}
 
     steps:
       - name: Checkout
@@ -43,8 +43,8 @@ jobs:
             @semantic-release/release-notes-generator@14.1.0 \
             conventional-changelog-conventionalcommits@9.3.0
 
-      - name: Run Semantic Release
-        id: release
+      - name: Generate release
+        id: generate-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
