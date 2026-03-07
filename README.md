@@ -6,7 +6,6 @@ Configuration complète de semantic-release pour JavaScript avec GitHub Actions.
 
 - ✅ Semantic Release avec **GitHub** (remplace GitLab)
 - ✅ Génération automatique du CHANGELOG
-- ✅ Publication NPM optionnelle
 - ✅ Création de release GitHub
 - ✅ **Création automatique de branches `release/vX.Y`** ⭐ (version majeure.mineure uniquement)
 - ✅ Déclenchement manuel du workflow
@@ -19,7 +18,6 @@ Configuration complète de semantic-release pour JavaScript avec GitHub Actions.
 - `@semantic-release/git@^10.0.1`
 - **`@semantic-release/github@^12.0.6`** ⭐ (remplace GitLab)
 - `@semantic-release/exec@^7.1.0`
-- `@semantic-release/npm@^13.1.5`
 - `@semantic-release/release-notes-generator@^14.1.0`
 - `conventional-changelog-conventionalcommits@^9.3.0`
 
@@ -33,7 +31,6 @@ Le workflow `.github/workflows/release.yml` contient **2 jobs** :
 - Détermine la nouvelle version (patch, minor, major)
 - Met à jour `package.json` et `CHANGELOG.md`
 - Crée un commit, un tag et une release GitHub
-- Publie sur NPM (optionnel)
 
 ### Job 2: Create Release Branch
 - **S'exécute automatiquement si une release est créée**
@@ -67,8 +64,7 @@ Le workflow va automatiquement:
 4. ✅ Créer un commit de release
 5. ✅ Créer un tag Git (ex: `v1.0.0`)
 6. ✅ Créer une release GitHub
-7. ✅ Publier sur NPM (si configuré)
-8. ✅ **Créer une branche `release/v1.0` automatiquement** ⭐ (version majeure.mineure uniquement)
+7. ✅ **Créer une branche `release/v1.0` automatiquement** ⭐ (version majeure.mineure uniquement)
 
 ### Vérifier la branche créée
 
