@@ -1,8 +1,9 @@
 module.exports = {
   branches: ['master', 'main'],
-  verifyConditions: ['@semantic-release/changelog', '@semantic-release/git', '@semantic-release/github'],
+  verifyConditions: ['@semantic-release/changelog', '@semantic-release/npm', '@semantic-release/git', '@semantic-release/github'],
   prepare: [
     '@semantic-release/changelog',
+    '@semantic-release/npm',
     {
       path: '@semantic-release/git',
       message: 'chore(release): ${nextRelease.version}\n\n${nextRelease.notes}',
