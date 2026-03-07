@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.2.7...v1.3.0) (2026-03-07)
+
+### Features
+
+* Remove yarn cache ([a8b6f31](https://github.com/mickaelwegerich/semantic-release-js/commit/a8b6f311644008ddb0f8d3137f7f22a5148ded21))
+
 ## [1.2.7](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.2.6...v1.2.7) (2026-03-07)
 
 ### Bug Fixes
