@@ -13,7 +13,6 @@ jobs:
     name: Prepare Release
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.generate-release.outputs.version }}
       new-release-published: ${{ steps.generate-release.outputs.new-release-published }}
 
     steps:
@@ -49,10 +48,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx semantic-release
-          # Capture the version from package.json after release
-          VERSION=$(node -p "require('./package.json').version")
-          echo "Version: $VERSION"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "new-release-published=true" >> $GITHUB_OUTPUT
 
   create-release-branch:
@@ -75,9 +70,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Create and Push Release Branch
-        env:
-          VERSION: ${{ needs.prepare-release.outputs.version }}
         run: |
+          # Get version from package.json
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Version: $VERSION"
+          
           # Extract only major.minor (X.Y) from version (X.Y.Z)
           MAJOR_MINOR=$(echo "${VERSION}" | cut -d. -f1,2)
           BRANCH_NAME="release/v${MAJOR_MINOR}"
