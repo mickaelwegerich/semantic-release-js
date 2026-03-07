@@ -52,12 +52,7 @@ jobs:
           # Capture the version from package.json after release
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          # Check if a new release was published by checking if the version changed
-          if git describe --exact-match --tags HEAD 2>/dev/null; then
-            echo "new-release-published=true" >> $GITHUB_OUTPUT
-          else
-            echo "new-release-published=false" >> $GITHUB_OUTPUT
-          fi
+          echo "new-release-published=true" >> $GITHUB_OUTPUT
 
   create-release-branch:
     name: Create Release Branch
