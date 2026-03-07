@@ -51,6 +51,7 @@ jobs:
           npx semantic-release
           # Capture the version from package.json after release
           VERSION=$(node -p "require('./package.json').version")
+          echo "Version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "new-release-published=true" >> $GITHUB_OUTPUT
 
