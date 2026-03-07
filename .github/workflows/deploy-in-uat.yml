@@ -13,8 +13,8 @@ jobs:
     name: Prepare Release
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.release.outputs.version }}
-      new-release-published: ${{ steps.release.outputs.new-release-published }}
+      version: ${{ steps.prepare-release.outputs.version }}
+      new-release-published: ${{ steps.prepare-release.outputs.new-release-published }}
 
     steps:
       - name: Checkout
