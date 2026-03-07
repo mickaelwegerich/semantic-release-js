@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.2.1...v1.2.2) (2026-03-07)
+
+### Bug Fixes
+
+* Clean ([2424d66](https://github.com/mickaelwegerich/semantic-release-js/commit/2424d665ad7ad30922408cb681d815ceb2389dbc))
+
 ## [1.2.1](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.2.0...v1.2.1) (2026-03-07)
 
 ### Bug Fixes
