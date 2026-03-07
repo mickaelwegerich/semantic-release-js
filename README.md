@@ -8,7 +8,7 @@ Configuration complète de semantic-release pour JavaScript avec GitHub Actions.
 - ✅ Génération automatique du CHANGELOG
 - ✅ Publication NPM optionnelle
 - ✅ Création de release GitHub
-- ✅ **Création automatique de branches `release/vX.Y.Z`** ⭐
+- ✅ **Création automatique de branches `release/vX.Y`** ⭐ (version majeure.mineure uniquement)
 - ✅ Déclenchement manuel du workflow
 
 ## 📦 Packages installés (dernières versions)
@@ -28,7 +28,7 @@ Configuration complète de semantic-release pour JavaScript avec GitHub Actions.
 Le workflow `.github/workflows/release.yml` contient **2 jobs** :
 
 ### Job 1: Semantic Release
-- Lance semantic-release sur la branche master
+- Lance semantic-release sur la branche **master**
 - Analyse les commits depuis la dernière version
 - Détermine la nouvelle version (patch, minor, major)
 - Met à jour `package.json` et `CHANGELOG.md`
@@ -37,7 +37,7 @@ Le workflow `.github/workflows/release.yml` contient **2 jobs** :
 
 ### Job 2: Create Release Branch
 - **S'exécute automatiquement si une release est créée**
-- **Crée une branche `release/vX.Y.Z` automatiquement** ⭐
+- **Crée une branche `release/vX.Y` automatiquement** ⭐ (version majeure.mineure uniquement)
 - Pousse la branche sur GitHub
 
 ## 🔧 Utilisation
@@ -55,8 +55,7 @@ git push origin master
 1. Aller sur GitHub → **Actions**
 2. Sélectionner le workflow **"Release"**
 3. Cliquer sur **"Run workflow"**
-4. Sélectionner la branche (par défaut: `master`)
-5. Cliquer sur **"Run workflow"**
+4. Cliquer sur **"Run workflow"** (le workflow s'exécutera automatiquement sur master)
 
 ### Étape 3: Résultat
 
@@ -69,7 +68,7 @@ Le workflow va automatiquement:
 5. ✅ Créer un tag Git (ex: `v1.0.0`)
 6. ✅ Créer une release GitHub
 7. ✅ Publier sur NPM (si configuré)
-8. ✅ **Créer une branche `release/v1.0.0` automatiquement** ⭐
+8. ✅ **Créer une branche `release/v1.0` automatiquement** ⭐ (version majeure.mineure uniquement)
 
 ### Vérifier la branche créée
 
@@ -81,7 +80,8 @@ git fetch
 git branch -r | grep release
 
 # Checkout la branche release (optionnel)
-git checkout release/v1.0.0
+# Si votre version est 1.0.3, la branche sera release/v1.0
+git checkout release/v1.0
 ```
 
 ## 📝 Convention de commits (Conventional Commits)
@@ -159,9 +159,11 @@ git push origin master
 # 5. Vérifier le résultat
 git fetch
 git branch -a
-# Vous verrez: remotes/origin/release/v1.1.0
+# Vous verrez: remotes/origin/release/v1.1
 
 # 6. La branche release est créée automatiquement! 🎉
+# Note: La branche contient uniquement la version majeure.mineure (vX.Y)
+# Par exemple: si la version est 1.1.0, la branche sera release/v1.1
 ```
 
 ## 📚 Documentation
@@ -172,4 +174,9 @@ git branch -a
 
 ## 🎉 C'est prêt !
 
-Votre projet est maintenant configuré pour utiliser semantic-release avec GitHub Actions. À chaque lancement du workflow, une branche `release/vX.Y.Z` sera créée automatiquement si une nouvelle version est publiée.
+Votre projet est maintenant configuré pour utiliser semantic-release avec GitHub Actions. À chaque lancement du workflow, une branche `release/vX.Y` sera créée automatiquement si une nouvelle version est publiée.
+
+**Note importante:** La branche de release utilise uniquement la version majeure.mineure (vX.Y), pas le patch. Par exemple:
+- Version `1.0.0` → branche `release/v1.0`
+- Version `1.1.5` → branche `release/v1.1`
+- Version `2.0.3` → branche `release/v2.0`
