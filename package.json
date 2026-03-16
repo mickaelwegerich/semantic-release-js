@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-js",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "main": "index.js",
   "repository": "https://github.com/mickaelwegerich/semantic-release-js.git",
   "author": "Mickael Wegerich <mickael.wegerich@3lights-technology.com>",

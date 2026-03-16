@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.3.0...v1.4.0) (2026-03-16)
+
+### Features
+
+* Update wording ([dfe1dd7](https://github.com/mickaelwegerich/semantic-release-js/commit/dfe1dd7421b17bf288ab8a3b8a2d27d23836729d))
+
 ## [1.3.0](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.2.7...v1.3.0) (2026-03-07)
 
 ### Features
