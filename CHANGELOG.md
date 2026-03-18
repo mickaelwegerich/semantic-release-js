@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.5.0...v1.5.1) (2026-03-18)
+
+### Bug Fixes
+
+* Wording ([aaca9c1](https://github.com/mickaelwegerich/semantic-release-js/commit/aaca9c1fbe9153457bce9317ced0df06f35ab8e3))
+
 ## [1.5.0](https://github.com/mickaelwegerich/semantic-release-js/compare/v1.4.0...v1.5.0) (2026-03-18)
 
 ### Features
